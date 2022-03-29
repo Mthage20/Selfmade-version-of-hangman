@@ -46,9 +46,13 @@ def play_game(secret_word):
 
 def get_word(word_list):
     word_choice = input('Enter your choice: \n\n- r = random english word \n\n- t = typed word\n\n\n')
+
     if word_choice == 'r': secret_word = random.choice(word_list).lower()
+    
     elif word_choice == 't': secret_word = input('Enter the word you want to use for hangman: ').lower()
+
     elif word_choice == 'q': quit()
+    
     else: print('Incorrect input')
 
     return secret_word
