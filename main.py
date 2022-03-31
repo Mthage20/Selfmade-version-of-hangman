@@ -14,9 +14,12 @@ def play_game(secret_word):
             if len(guess) == 1 and guess.isalpha:
                 if guess in guessed_chars:
                     print("You've already guessed that letter, try again!")
+                elif guess.isdigit:
+                    print('You can only guess letters or words')
                 elif guess not in secret_word:
                     lives -= 1
                     print(guess, 'is unfortunately not in the word :(')
+                    print('\nRemaining lives:', lives)
                 else:
                     print('Good guess! ', guess, 'is in the word!')
                     guessed_chars.append(guess)
@@ -26,22 +29,23 @@ def play_game(secret_word):
                     for index in indices:
                         temp_word_progression[index] = guess
                         word_progression = "".join(temp_word_progression)
-
+                        
             elif len(guess) == len(secret_word) and guess.isalpha:
                 if guess == secret_word:
                     word_found = True
                 else:
                     lives -= 1
                     print(guess, 'is unfortunately not the word :(')
+                    print('\nRemaining lives:', lives)
 
             else:
                 print(
                     'You can only guess 1 character or a whole word with the length of the secret word')
 
             if lives == 0:
-                print('Game over :(')
+                print('\nGame over :(\n\nThe secret word was', secret_word,'\n')
             if word_found or '_' not in word_progression:
-                print('\nCongratulations! You won! :D')
+                print('\nCongratulations! You won! :D\n')
 
 
 def get_word(word_list):
