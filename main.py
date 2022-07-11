@@ -9,7 +9,7 @@ def play_game(secret_word):
 
         while word_found is not True and lives != 0:
             print(word_progression)
-            guess = input('\nEnter your guess: ').lower()
+            guess = input('\nEnter your guess: ').lower().replace(" ", "")
 
             if len(guess) == 1 and guess.isalpha:
                 if guess in guessed_chars:
